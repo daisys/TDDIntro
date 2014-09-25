@@ -5,15 +5,20 @@ package com.thoughtworks.accountbalance;
  */
 public class Account {
     private int balance;
+
     public Account(int balance) {
         this.balance = balance;
     }
 
     public int deposit(int i) {
-        return 150;
+        return balance + i;
     }
 
     public int withdraw(int i) {
-        return 50;
+        if ((balance - i) < 0) {
+            return balance;
+        } else {
+            return balance - i;
+        }
     }
 }
